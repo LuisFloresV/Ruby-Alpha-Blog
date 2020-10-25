@@ -1,6 +1,17 @@
-<h2>Article</h2>
-<p><strong>Title: <%= @article.title%></strong></p>
-<p><strong>Description: <%= @article.description%></strong></p>
-<%= link_to 'Update', edit_article_path(@article) %> |
-<%= link_to 'Delete', article_path(@article), method: :delete , data: { confirm:"Are u sure?"} %> |
-<%= link_to 'Return to all articles', articles_path %>
+<div class="container">
+    <h1 class="my-3 text-center"><%= @article.title %></h1>
+        <div class="card text-center my-4 shadow mb-5 bg-white rounded">
+            <div class="card-header">
+                By Naoko
+            </div>
+            <div class="card-body">
+                <div class="card-text text-left"><%= simple_format(@article.description) %></div>
+                <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-secondary"%>
+                <%= link_to 'Delete', article_path(@article), method: :delete , data: { confirm:"Are u sure?"}, class: "btn btn-outline-danger" %>
+            </div>
+        <div class="card-footer text-muted">
+            <small> Created <%= time_ago_in_words(@article.created_at)%> ago Edited <%= time_ago_in_words(@article.updated_at)%> ago!
+            </small>
+        </div>
+    </div>
+</div>

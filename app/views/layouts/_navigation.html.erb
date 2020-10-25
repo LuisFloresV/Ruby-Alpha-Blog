@@ -1,0 +1,24 @@
+<header id="navbar-blog">
+      <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <%= link_to "ALPHA BLOG", root_path, class: "navbar-brand", id: "logo"%>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNaoko" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+                <div class="collapse navbar-collapse" id="navbarNaoko">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <%= link_to "Articles", articles_path, class: "nav-link"%>
+                        </li>
+                        <li class="nav-item">
+                            <%= link_to "New Article", new_article_path, class: "nav-link"%>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</header>

@@ -7,10 +7,13 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
   </head>
 
-  <body>
+  <body class="d-flex flex-column">
+    <%= render 'layouts/navigation.html.erb'%>
     <%= render 'layouts/messages.html.erb'%>
     <%= yield %>
+      <%= render 'layouts/footer.html.erb'%>
   </body>
 </html>
