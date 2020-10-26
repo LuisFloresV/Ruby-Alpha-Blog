@@ -1,6 +1,7 @@
 class User < ApplicationRecord
+    has_many :articles
     VALID_EMAIL_REGEX = URI::MailTo::EMAIL_REGEXP
-    
+
     validates :username, presence: true, 
                         uniqueness: { case_sensitive: false },
                         length: {minimum: 3, maximum: 25}
