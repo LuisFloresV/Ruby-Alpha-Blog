@@ -1,0 +1,26 @@
+<div class="container mt-4">
+    <h1>Log in!</h1>
+
+<div class="container mt-4 ">
+<%= form_with(scope: :session, url: login_path, class: "shadow mb-5 p-3 bg-dark text-white rounded",local: true) do |f|%>
+
+    <div class="form-group row">
+            <%= f.label :email, class: "col-12 col-md-2  col-form-label"%><br/>
+        <div class="col-12 col-md-10">
+            <%= f.email_field :email, class:"form-control", placeholder: "Enter your email address"%>
+        </div>
+    </div>
+    <div class="form-group row">
+            <%= f.label :password, class: "col-12 col-md-2  col-form-label"%><br/>
+        <div class="col-12 col-md-10">
+            <%= f.password_field :password , class:"form-control", placeholder: "Enter your password"%>
+        </div>
+    </div>
+    <div class="form-group row justify-content-center">
+        <%= f.submit "Logn in" ,class: "btn btn-outline-light"%>
+    </div>       
+<% end %>
+<%= link_to '[Cancel and return to Articles]',articles_path%>
+</div>
+</div>
+
