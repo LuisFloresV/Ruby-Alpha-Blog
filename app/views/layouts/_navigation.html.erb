@@ -11,17 +11,24 @@
                         <li class="nav-item">
                             <%= link_to "Articles", articles_path, class: "nav-link"%>
                         </li>
-                        <li class="nav-item">
-                            <%= link_to "New Article", new_article_path, class: "nav-link"%>
-                        </li>
+                      
                         <li class="nav-item">
                             <%= link_to "Bloggers", users_path, class: "nav-link"%>
                         </li>
-                       
-                        
+                      
                         <%if logged_in?%>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%= ("[Admin]")  if  current_user.admin?%> <%= current_user.username %>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <%= link_to "View profile", user_path(current_user), class: "dropdown-item"%>
+                            <%= link_to "Edit profile", edit_user_path(current_user), class: "dropdown-item"%>
+                            <%= link_to "Delete profile", user_path(current_user), method: :delete, class: "dropdown-item text-danger", data:{ confirm: "Are you sure?"} %>
+                            </div>
+                        </li>
                         <li class="nav-item">
-                           <%= link_to current_user.username, user_path(current_user), class: "nav-link"%>
+                            <%= link_to "New Article", new_article_path, class: "nav-link"%>
                         </li>
                         <li class="nav-item">
                            <%= link_to "Log out", logout_path, class: "nav-link", method: :delete%>

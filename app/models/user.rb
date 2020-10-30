@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     before_save { self.email = email.downcase }
-    has_many :articles
+    has_many :articles, dependent: :destroy
     VALID_EMAIL_REGEX = URI::MailTo::EMAIL_REGEXP
 
     validates :username, presence: true, 
