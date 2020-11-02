@@ -15,7 +15,17 @@
                         <li class="nav-item">
                             <%= link_to "Bloggers", users_path, class: "nav-link"%>
                         </li>
-                      
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                               <% if logged_in? && current_user.admin? %>
+                                    <%= link_to "Create new category", new_category_path, class: "dropdown-item"%>
+                                <% end %>
+                            <%= link_to "View categories", categories_path, class: "dropdown-item"%>
+                            </div>
+                        </li>
                         <%if logged_in?%>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -27,6 +37,7 @@
                             <%= link_to "Delete profile", user_path(current_user), method: :delete, class: "dropdown-item text-danger", data:{ confirm: "Are you sure?"} %>
                             </div>
                         </li>
+                        
                         <li class="nav-item">
                             <%= link_to "New Article", new_article_path, class: "nav-link"%>
                         </li>

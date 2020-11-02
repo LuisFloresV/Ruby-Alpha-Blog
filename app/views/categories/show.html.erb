@@ -1,0 +1,16 @@
+ <div class="container mt-2 text-center">
+    <h1>Category: <%= @category.name %> profile</h1>
+
+    <% if logged_in? && current_user.admin? %>
+        <%= link_to "Edit", edit_category_path(@category), class:"btn btn-outline-dark"%>
+    <% end %>
+    <h3 class="text-center mt-4">Articles</h3>
+    <div class="flickr_pagination mb-3">
+    <%= will_paginate @articles, :container => false %>
+    </div>
+    <%= render 'articles/articles' %>
+    <div class="flickr_pagination mb-3">
+    <%= will_paginate @articles, :container => false %>
+    </div>
+ </div>
+ 
